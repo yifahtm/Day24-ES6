@@ -1,29 +1,36 @@
 'use strict'
-const gUser = {
-    email: '',
-    txtColor: '',
-    bgColor: '',
-    age: '',
-    birthDate: '',
-    birthTime: ''
-}
 
 const STORAGE_KEY = 'settingDB'
 
+var gUser = _createUser()
+
 function setBGColor(value) {
-    const newBGColor = user.bgColor = value
+    const newBGColor = gUser.bgColor = value
     _saveSettingsToStorage()
     return newBGColor
-
 }
 function setColor(value) {
-    const newTxtColor = user.txtColor = value
+    const newTxtColor = gUser.txtColor = value
     _saveSettingsToStorage()
     return newTxtColor
 
 }
 
 function _saveSettingsToStorage() {
-    saveToStorage(STORAGE_KEY, user)
+    saveToStorage(STORAGE_KEY, gUser)
 }
 
+function _createUser() {
+    gUser = loadFromStorage(STORAGE_KEY)
+    if (gUser && gUser.length) return
+    else gUser = {
+        email: '',
+        txtColor: '',
+        bgColor: '',
+        age: '',
+        birthDate: '',
+        birthTime: ''
+    }
+    _saveSettingsToStorage()
+    return gUser
+}
