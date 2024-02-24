@@ -2,7 +2,12 @@
 
 const STORAGE_KEY = 'settingDB'
 
-var gUser = _createUser()
+var gUser
+_createUser()
+
+function getValue(key) {
+    return gUser[key]
+}
 
 function setBGColor(value) {
     const newBGColor = gUser.bgColor = value
@@ -23,7 +28,7 @@ function _saveSettingsToStorage() {
 function _createUser() {
     gUser = loadFromStorage(STORAGE_KEY)
     if (gUser && gUser.length) return
-    else gUser = {
+    gUser = {
         email: '',
         txtColor: '',
         bgColor: '',
@@ -32,5 +37,4 @@ function _createUser() {
         birthTime: ''
     }
     _saveSettingsToStorage()
-    return gUser
 }

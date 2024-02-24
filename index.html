@@ -4,20 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Place Keeper/ Home</title>
 </head>
 
-<body>
+<body onload="onInit()">
     <header>
+        <h1>Place Keeper</h1>
+        <p>Find your way back to your favorite places</p>
         <nav>
             <a href="places.html">Places</a>
             <a href="user-settings.html">Settings</a>
         </nav>
     </header>
-    <main>Find your way back to your favorite places</main>
+    <main class="birth-date-time">
+        <small class="birth-date">Your Date of Birth:<span class="dob-home"></span></small>
+        <small class="birth-time">You were born at:<span class="time-home"></span></small>
+    </main>
+
     <script src="js\utils.service.js"></script>
     <script src="js\storage.service.js"></script>
-    <script src="js\user-settings.controller.js"></script>
+    <script src="js\home.controller.js"></script>
     <script src="js\user-settings.service.js"></script>
 </body>
 

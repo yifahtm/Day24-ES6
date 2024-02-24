@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User-prefs</title>
+    <title>Place Keeper/ Settings</title>
 </head>
 
 <body>
@@ -16,22 +16,22 @@
     </header>
     <main>
         <h2>Site settings</h2>
-        <form id="frmSettings" onsubmit="submit(event)">
+        <form class="frmSettings" onsubmit="submit(event)">
             <label for="email">E-mail:</label>
-            <input type="email" name="email" />
+            <input type="email" class="email" name="email" />
             <label for="age">Age: <span id="sAge">26</span></label>
-            <input type="range" id="age" name="age" step="10" min="18" max="120" value="26" />
+            <input type="range" class="age" name="age" step="10" min="18" max="120" value="26" />
             <label for="dob">Date of Birth:</label>
-            <input type="date" id="dob" name="dob" />
+            <input oninput="onSetDOB(this)" type="date" class="dob" name="dob" />
             <label for="time">Birth Time:</label>
-            <input type="time" id="time" name="time" />
+            <input oninput="onSetBirthTime(this)" type="time" class="time" name="time" />
             <h3>Colors</h3>
             <label for="background-color">Background Color: </label>
-            <input onchange="onSetBGColor(this)" type="color" id="background-color" name="background-color"
-                form="frmRegister" value="#ff0000" id="background-color" />
+            <input onchange="onSetBGColor(this)" type="color" class="background-color" name="background-color"
+                form="frmRegister" value="#ff0000" />
             <label for="text-color">Text Color: </label>
-            <input onchange="onSetColor(this)" type="color" id="text-color" name="text-color" form="frmRegister"
-                value="#ff0000" id="text-color" />
+            <input onchange="onSetColor(this)" type="color" class="text-color" name="text-color" form="frmRegister"
+                value="#ff0000" />
             <button>Set</button>
         </form>
     </main>
